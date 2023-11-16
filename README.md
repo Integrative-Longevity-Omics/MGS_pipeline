@@ -11,6 +11,7 @@ Pipeline for metagenomics sequencing processing: This pipeline includes pre-proc
   - Build custom database of k-mer minimizer sequences (02_kraken2-build.sh)
   - Taxonomic classification for each sample (02_kraken2-classification.sh)
   - Generate BIOM table of merged Kraken2 report outputs (02_kraken2-generate-biom.sh)
+  - Generate table of k-mer minimizer counts (02_kraken2-generate-table.R)
 
 - MetaPhlan4
   - Taxonomic classification for each sample 
