@@ -11,12 +11,13 @@
 #      kraken2uniq BIOM table       		 #
 ##############################################
 
-#load modules
+#load kraken2 from conda environment
 module load gcc
 module load miniconda
 conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/conda_envs/metagenomics
 
 #directories
+DIR="/restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/Kraken_Analysis/kraken_analysis_feb2023"
 INPUT="/restricted/projectnb/uh2-sebas/analysis/metagenomics/meg_analyses/kraken2uniq_kneaddata_feb2023/Reports" 
 OUTPUT="/restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/Kraken_Analysis/kraken_analysis_feb2023/kraken2uniq_kneaddata_reports"
 BIOM="/restricted/projectnb/uh2-sebas/analysis/metagenomics/data_library"
@@ -32,6 +33,8 @@ for SAMPLE in $SAMPLES; do
 done
 
 #run kraken-biom function to generate biom object from kraken report output files
-kraken-biom ${DIRNOV}/*.std.report.txt ${DIRFEB}/*.std.report.txt --fmt json -o ${OUTPUT}/kraken2uniq_kneaddata_integrated.11.03.2023.biom
+kraken-biom ${OUTPUT}/*.std.report.txt --fmt json -o ${BIOM}/kraken2uniq_kneaddata_integrated.11.03.2023.biom
 
-
+#In R, import biom table  to generate OTU table and taxonomic table using phyloseq R package
+#library(phyloseq)
+#phyoseq::import_biom("kraken2uniq_kneaddata_integrated.11.03.2023.biom")
