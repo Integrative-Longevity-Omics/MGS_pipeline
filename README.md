@@ -1,6 +1,6 @@
 # MGS_pipeline
 
-Pipeline for metagenomics sequencing processing: This pipeline includes pre-processing steps using KneadData and two options for running taxonomic classification for shotgun metagenomics sequencing including MetaPhlan4 and Kraken2. The steps of the pipeline are described below.
+Pipeline for metagenomics sequencing processing: This pipeline includes pre-processing steps using KneadData and two options for running taxonomic classification for shotgun metagenomics sequencing including MetaPhlan4 and Kraken2. The steps of the pipeline are described below, with detailed documentation available [here](Metagenomic_pipeline_description.pdf).
 
 - KneadData (01_build_kneaddata_db.sh -> 01_run_kneaddata.sh)
   - Trim adapters
