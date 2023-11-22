@@ -15,3 +15,10 @@ Pipeline for metagenomics sequencing processing: This pipeline includes pre-proc
 
 - MetaPhlan4 
   - Taxonomic classification for each sample (03_run_mp4.sh)
+
+![Pipeline Overview](https://github.com/Integrative-Longevity-Omics/MGS_pipeline/blob/main/workflow/pipeline_overview.SVG)
+
+![Kraken2 Workflow](https://github.com/Integrative-Longevity-Omics/MGS_pipeline/blob/main/workflow/Kraken2_workflow.SVG)
+
+![MetaPhlan4 Workflow](https://github.com/Integrative-Longevity-Omics/MGS_pipeline/blob/main/workflow/MetaPhlan4_workflow.SVG)
+
