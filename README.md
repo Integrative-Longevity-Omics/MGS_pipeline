@@ -21,7 +21,7 @@ Pipeline for metagenomics sequencing processing: This pipeline includes pre-proc
   - Build k-mer distribution file (03_bracken-build.sh)
   - Taxonomic relative abundance estimation for each sample (03_bracken-abundance-estimation.sh)
   - Filter Bracken report outputs for each sample (03_bracken-filter-report.sh)
-  - Generate table of merged Bracken report outpus (03_bracken-combine_report.sh)
+  - Generate table of merged Bracken report outpus (03_bracken-combined-report.sh)
   
 - MetaPhlan4 
   - Taxonomic classification for each sample (04_run_mp4.sh)
