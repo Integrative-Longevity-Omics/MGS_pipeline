@@ -17,9 +17,14 @@ Pipeline for metagenomics sequencing processing: This pipeline includes pre-proc
   
 ![Kraken2 Workflow](https://github.com/Integrative-Longevity-Omics/MGS_pipeline/blob/main/workflow/Kraken2_workflow.SVG)
 
-
+- Bracken
+  - Build k-mer distribution file (03_bracken-build.sh)
+  - Taxonomic relative abundance estimation for each sample (03_bracken-abundance-estimation.sh)
+  - Filter Bracken report outputs for each sample (03_bracken-filter-report.sh)
+  - Generate table of merged Bracken report outpus (03_bracken-combine_report.sh)
+  
 - MetaPhlan4 
-  - Taxonomic classification for each sample (03_run_mp4.sh)
+  - Taxonomic classification for each sample (04_run_mp4.sh)
 
 
 ![MetaPhlan4 Workflow](https://github.com/Integrative-Longevity-Omics/MGS_pipeline/blob/main/workflow/MetaPhlan4_workflow.SVG)
