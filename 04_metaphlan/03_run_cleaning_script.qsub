@@ -1,0 +1,24 @@
+!/bin/bash -l
+
+#$ -pe omp 4
+#$ -P ilometagenomics
+#$ -l h_rt=08:00:00
+#$ -N clean_merge_mph4
+#$ -j y
+#$ -m bae 
+#$ -M sibald@bu.edu
+#$ -o /restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/metaphlan4.2/qsub_logs
+
+#load modules
+module load miniconda
+conda activate mph4.2
+
+#directories
+DIR=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/metaphlan4.2/scripts/
+
+#files
+REPORT=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/metaphlan4.2/metaphlan4.2_out/
+OUTPUT=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/metaphlan4.2/merged_output_09112025/
+
+#Run scripts to merge metaphlan reports, clean sample names to stool kit IDs, and stratify abundance tables by taxonomic level
+$DIR/clean_merge_metaphlan.sh $REPORT $OUTPUT
