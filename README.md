@@ -9,7 +9,7 @@ Pipeline for metagenomics sequencing processing: This pipeline includes pre-proc
   - Trim repetitive sequences
   - Remove host (human) DNA
  
-- Kraken2 (02_kraken2)
+- Kraken2 (02_kraken)
   - Build custom database of k-mer minimizer sequences (01_kraken2_build_db.sh)
   - Taxonomic classification for each sample (02_kraken2_classification.sh)
   - Generate table of k-mer minimizer counts (03_kmer_minimizer_table.R)
