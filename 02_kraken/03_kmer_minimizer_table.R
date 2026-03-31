@@ -1,22 +1,23 @@
-#Purpose: upload kraken2uniq data and save minimizer information in tables
+#Purpose: Generate combined table of k-mer minimizer counts across all samples
 
-#library(pavian)
+#load libraries
 library(tidyverse)
 library(purrr)
-#pavian::runApp(port=5000)
 
-#directory
+#data directory for each experimental phase batch
 phase1.dir <- "/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_nov2021/Reports/"
 phase2.dir <- "/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_feb2023/Reports/"
 phase3.dir <- "/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_june2024/Reports/"
+#output directory
 out.dir <- "/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kraken2_data/merged_output/"
 
-#list of reports
+#list of kraken2 report files for each experimental phase
 phase1.kraken <- list.files(phase1.dir, pattern="aggregated.report.txt")
 phase2.kraken <- list.files(phase2.dir, pattern="aggregated.report.txt")
 phase3.kraken <- list.files(phase3.dir, pattern="aggregated.report.txt")
 
-#read in each sample report and save kmer information
+##read in each sample report and save kmer information
+#for each experimental phase
 phase1.kraken.df <- lapply(1:length(phase1.kraken), function(x){
   #read_report(paste0(phase1.dir, phase1.kraken[x]), has_header = NULL, check_file = FALSE)
   report.res <- read_delim(paste0(phase1.dir, phase1.kraken[x]), 
@@ -55,7 +56,6 @@ combined.kraken.df <- c(phase1.kraken.df, phase2.kraken.df, phase3.kraken.df)
 names(combined.kraken.df) <- c(phase1.kraken, phase2.kraken, phase3.kraken)
 
 #table of n_minimizers
-
 combined.n_minimizers.list <- combined.kraken.df %>% 
   purrr::map(function(x) select(x, taxID, n_minimizers))
 

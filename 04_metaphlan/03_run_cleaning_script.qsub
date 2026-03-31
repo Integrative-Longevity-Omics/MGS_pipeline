@@ -1,24 +1,26 @@
 !/bin/bash -l
 
+#Purpose: Run script to merge metaphlan reports, clean sample names to stool kit IDs, and stratify abundance tables by taxonomic level
+
 #$ -pe omp 4
 #$ -P ilometagenomics
 #$ -l h_rt=08:00:00
 #$ -N clean_merge_mph4
 #$ -j y
-#$ -m bae 
-#$ -M sibald@bu.edu
 #$ -o /restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/metaphlan4.2/qsub_logs
 
-#load modules
+#load required modules and conda environment
+#MetaPhlAn v.4.2.2
 module load miniconda
 conda activate mph4.2
 
 #directories
+#directory containing the script used to execute the utility scripts
 DIR=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/metaphlan4.2/scripts/
-
-#files
+#data directory of MetaPhlAn report files for each sample
 REPORT=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/metaphlan4.2/metaphlan4.2_out/
+#output directory
 OUTPUT=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/metaphlan4.2/merged_output_09112025/
 
-#Run scripts to merge metaphlan reports, clean sample names to stool kit IDs, and stratify abundance tables by taxonomic level
+#Run script
 $DIR/clean_merge_metaphlan.sh $REPORT $OUTPUT

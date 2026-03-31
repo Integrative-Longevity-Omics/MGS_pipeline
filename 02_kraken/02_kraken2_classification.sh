@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
-#Author: Tanya Karagiannis
-#Purpose: Run Kraken2 on each sample
+
+#Purpose: Run Kraken2 classification on each sample
 
 #$ -pe omp 28
 #$ -P ilometagenomics
@@ -11,6 +11,10 @@
 #$ -o /restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_june2024/scripts/logs
 #$ -t 1-218
 #total 218 samples
+
+##############################################################
+#Run Kraken2 on 218 ILO samples from experimental phase 3    #
+##############################################################
 
 #load kraken2
 module load miniconda
@@ -26,11 +30,12 @@ cd $DATA_DIR
 filename=$(ls *_kneaddata_paired_1.fastq.gz)
 echo "$filename"
 
-#select sample based on the task ID
+#select sample file based on the task ID
 input_file=$(echo "$filename" | sed -n "${SGE_TASK_ID}p" )
 echo "$input_file"
 
-#get sample label from filename
+#extract sample label from filename
+#may need to edit this based on filename structure
 SAMPLEARG=$(echo "$input_file" | cut -d'_' -f1)
 echo "$SAMPLEARG"
 

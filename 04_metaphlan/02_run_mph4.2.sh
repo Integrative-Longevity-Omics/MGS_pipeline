@@ -6,12 +6,13 @@
 #$ -l h_rt=04:00:00
 #$ -N mph4.2
 #$ -j y
-#$ -t 1
 #$ -o /restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/metaphlan4.2/qsub_logs/
+#$ -t 1-218
+#total of 218 samples
 
-###########################################################################################
-#Run MetaPhlAn4.3 on 3 phases of ILO samples with newest database downloaded June 16, 2025#
-###########################################################################################
+#########################################################
+#Run MetaPhlAn on ILO samples from experimental phase 3 #
+#########################################################
 
 #load MetaPhlAn4 conda environment
 #MetaPhlAn4.2.2

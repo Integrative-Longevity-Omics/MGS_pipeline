@@ -10,10 +10,12 @@
 #Create and Build Custom Kraken2Uniq Database#
 ##############################################
 
-#load kraken2
+#load required modules
+#activate conda environment to run KneadData v0.12.3
 module load miniconda
-conda activate mgx_classifiers
+conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/conda_envs/mgx_classifiers
 
+#environment variable to set number of cores
 OMP_NUM_THREADS=16
 
 #Kraken2 db path
@@ -23,7 +25,7 @@ DBNAME="/restricted/projectnb/uh2-sebas/data/metagenomics/Kraken2-DB/Kraken2-DB-
 #download taxonomy
 kraken2-build --download-taxonomy --db $DBNAME
 
-#download libraries in standard kraken2db to create custom database
+#download reference libraries
 kraken2-build --threads 16 --download-library archaea --db $DBNAME
 kraken2-build --threads 16 --download-library bacteria --db $DBNAME
 kraken2-build --threads 16 --download-library plasmid --db $DBNAME
@@ -31,13 +33,13 @@ kraken2-build --threads 16 --download-library viral --db $DBNAME
 kraken2-build --threads 16 --download-library human --db $DBNAME
 kraken2-build --threads 16 --download-library UniVec_Core --db $DBNAME
 
-#download CHM13 human reference sequence to be added to human taxid 9606
-kraken2-build --add-to-library /restricted/projectnb/uh2-sebas/data/metagenomics/Kraken2-DB/Kraken2Uniq-DB-09222023/chm13v2.0.fa --db $DBNAME
+#Add CHM13 human reference sequence to library
+kraken2-build --add-to-library chm13v2.0.fa --db $DBNAME
 
-#Download Eupath Sequences for Kraken2 Custom Database#
+#Download Eupath Sequences
 cd $DBNAME
 wget http://ccb.jhu.edu/data/eupathDB/dl/eupathDB.tar.gz
 time tar -xvzf eupathDB.tar.gz
 
-#build database based on libraries
+#build custom database based on libraries
 kraken2-build --threads 16 --build --db $DBNAME

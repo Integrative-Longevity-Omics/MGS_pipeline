@@ -1,7 +1,6 @@
 #!/bin/bash -l
 
-#Author: Tanya Karagiannis
-#Purpose: Run script to run Bracken on each sample
+#Purpose: Run Bracken abundance estimation on each sample
 
 #$ -cwd
 #$ -pe omp 2
@@ -9,16 +8,20 @@
 #$ -l h_rt=120:00:00
 #$ -N bracken_R1_b3
 #$ -j y
-#$ -M tkaragiannis@tuftsmedicalcenter.org
 #$ -o /restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/bracken_data/scripts/logs
 #$ -t 1-218
 #total 218 samples
 
-#load kraken2 and bracken
-module load miniconda
-conda activate mgx_classifiers
+##############################################################
+#Run Bracken on 218 ILO samples from experimental phase 3  #
+##############################################################
 
-#kneaddata directory
+#load required modules and conda environment
+#Bracken v.3.0.1
+module load miniconda
+conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/conda_envs/mgx_classifiers
+
+#environment variable to set number of cores
 OMP_NUM_THREADS=2
 
 #directories
@@ -37,14 +40,15 @@ filename=$(ls *.aggregated.report.txt)
 input_file=$(echo "$filename" | sed -n "${SGE_TASK_ID}p" )
 #echo "$input_file"
 
-#get sample label from filename
+#extract sample label from filename
+#may need to edit this based on filename structure
 SAMPLEARG=$(echo "$input_file" | cut -d'.' -f1)
 echo "$SAMPLEARG"
 
 #Kraken2 database
 DBNAME=/restricted/projectnb/ilometagenomics/data/Kraken2-DB/Kraken2-DB-06252025/kraken2-06252025
 
-#bracken input
+#bracken argument inputs
 READ_LEN=150
 CLASSIFICATION_LVL='S'
 THRESHOLD=10
@@ -52,7 +56,7 @@ THRESHOLD=10
 #create output directory
 mkdir $OUTPUT
 
-#Run Bracken to restimate abundances of that sample at the species level
+#Run Bracken to re-estimate abundances for that sample at the species level
 python ${TOOL}/est_abundance.py -i ${INPUT}/${SAMPLEARG}.aggregated.report.txt \
   -k ${DBNAME}/database${READ_LEN}mers.kmer_distrib \
   -l ${CLASSIFICATION_LVL} \

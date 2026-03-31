@@ -4,10 +4,12 @@ Pipeline for metagenomics sequencing processing: This pipeline includes pre-proc
 
 ![Pipeline Overview](https://github.com/Integrative-Longevity-Omics/MGS_pipeline/blob/main/workflow/pipeline_overview.SVG)
 
-- KneadData (01_kneaddata: 01_build_kneaddata_db.sh -> 01_run_kneaddata.sh)
-  - Trim adapters
-  - Trim repetitive sequences
-  - Remove host (human) DNA
+- KneadData (01_kneaddata)
+  - Build KneadData human genome reference database (01_build_kneaddata_db.sh) 
+  - KneadData processing (02_run_kneaddata.sh)
+      - Trim adapters
+      - Trim repetitive sequences
+      - Remove host (human) DNA
  
 - Kraken2 (02_kraken)
   - Build custom database of k-mer minimizer sequences (01_kraken2_build_db.sh)
@@ -18,6 +20,7 @@ Pipeline for metagenomics sequencing processing: This pipeline includes pre-proc
   - Build k-mer distribution file (03_bracken_build_db.sh)
   - Taxonomic relative abundance estimation for each sample (03_bracken_abundance_estimation.sh)
   - Generate table of merged Bracken report outputs (03_bracken_combined_report.sh)
+  - Generate taxonomic table (04_create_taxonomic_table.R)
   
   
 ![Kraken2 Workflow](https://github.com/Integrative-Longevity-Omics/MGS_pipeline/blob/main/workflow/Kraken2_workflow.SVG)
@@ -26,7 +29,8 @@ Pipeline for metagenomics sequencing processing: This pipeline includes pre-proc
 - MetaPhlan4 (04_metaphlan)
   - Build MetaPhlAn4 database (01_build_mp4.2_db.sh)
   - Taxonomic classification for each sample (02_run_mp4.2.sh)
-  - Generate combined species-level abundance table (03_clean_merge_metaphlan.py)
+  - Generate combined species-level abundance table (03_run_cleaning_script.qsub -> 03_clean_merge_metaphlan.py)
+      - Uses MetaPhlAn utility scripts with adjustments (03_utility_scripts)
 
 
 ![MetaPhlan4 Workflow](https://github.com/Integrative-Longevity-Omics/MGS_pipeline/blob/main/workflow/MetaPhlan4_workflow.SVG)

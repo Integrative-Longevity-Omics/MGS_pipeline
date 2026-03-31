@@ -5,16 +5,14 @@
 #$ -pe omp 16
 #$ -l mem_per_core=16G
 #$ -l h_rt=12:00:00
-#$ -m beas
-#$ -M Tanya.Karagiannis@tuftsmedicine.org
 #$ -N bracken_database
 
-##############################################
-#Create Bracken Database file              ###
-##############################################
+###################################################
+# Create Bracken k-mer distribution database file #
+###################################################
 
-#load conda environment
-#bracken v. 
+#load required modules and conda environment
+#Bracken v.3.0.1 
 module load miniconda
 conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/conda_envs/mgx_classifiers
 
@@ -22,6 +20,7 @@ conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analy
 database_dir=/restricted/projectnb/uh2-sebas/data/metagenomics/Kraken2-DB/Kraken2-DB-06252025
 cd $database_dir
 
+#environment variable to set number of cores
 #suggested by github to run with 16-20 threads
 OMP_NUM_THREADS=16
 
