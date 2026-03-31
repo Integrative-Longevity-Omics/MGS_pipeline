@@ -16,7 +16,8 @@
 #Run Kraken2 on 218 ILO samples from experimental phase 3    #
 ##############################################################
 
-#load kraken2
+#load required modules and activate conda environment
+# Kraken2 v.2.1.3
 module load miniconda
 conda activate mgx_classifiers
 
