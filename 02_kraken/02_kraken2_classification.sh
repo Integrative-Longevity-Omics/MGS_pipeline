@@ -19,7 +19,7 @@
 #load required modules and activate conda environment
 # Kraken2 v.2.1.3
 module load miniconda
-conda activate mgx_classifiers
+conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/conda_envs/mgx_classifiers
 
 #kneaddata directory
 DATA_DIR=/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kneaddata_fastq/kneaddata_out_june2024_07142025
