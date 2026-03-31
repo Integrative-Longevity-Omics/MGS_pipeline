@@ -12,10 +12,15 @@
 ###########################################################################
 
 # load the required modules and/or conda environment
+module load awscli
 module load bowtie2
 
 #output directory
 KNEADDATA_PATH=/restricted/projectnb/uh2-sebas/analysis/kneaddata_fastq
+
+#download chm13v2.0.fa file
+#aws s3 --no-sign-request cp s3://human-pangenomics/T2T/CHM13/assemblies/analysis_set/chm13v2.0.fa.gz $KNEADDATA_PATH
+#gunzip ${KNEADDATA_PATH}/chm13v2.0.fa.gz
 
 #Build KneadData Reference Database
 bowtie2-build ${KNEADDATA_PATH}/chm13v2.0.fa chm13v2_reference_db
