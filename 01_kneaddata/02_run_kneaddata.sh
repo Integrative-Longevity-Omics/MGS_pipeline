@@ -29,6 +29,7 @@ mkdir $FINAL_OUTPUT_DIR
 #data directory for third experimental phase batch of samples
 DATA_DIR=/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_batches/Metagenomic_June_2024/Raw_Sequencing_Data_and_QC_Reports/250220
 
+#database directory
 DB_DIR=/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kneaddata_fastq/chm13v2_reference_db
 
 #enter data directory
