@@ -11,7 +11,7 @@
 ##############################################
 
 #load required modules
-#activate conda environment to run KneadData v0.12.3
+#activate conda environment to run Kraken2 v.2.1.3
 module load miniconda
 conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/conda_envs/mgx_classifiers
 
