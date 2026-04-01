@@ -19,16 +19,22 @@
 #load required modules and conda environment
 module load miniconda
 conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/conda_envs/mgx_classifiers
+
+#environment variable
 OMP_NUM_THREADS=2
 
 #directories
 #directory with krakentools python script to run step
 TOOL=/restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/conda_envs/mgx_classifiers/bin
+
 #bracken data directory for each experimental phase
 PHASE1=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/bracken_data/Bracken_R1/Bracken_R1_nov2021
 PHASE2=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/bracken_data/Bracken_R1/Bracken_R1_feb2023
 PHASE3=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/bracken_data/Bracken_R1/Bracken_R1_june2024
+
+#output directory
 OUTPUT=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/bracken_data/merged_output
+
 #list of Bracken output files for each experimental
 FILE1=$(ls ${PHASE1}/*.bracken.species.txt | cat)
 FILE2=$(ls ${PHASE2}/*.bracken.species.txt | cat)
