@@ -36,7 +36,7 @@ cd $INPUT
 filename=$(ls *.aggregated.report.txt)
 #echo "$filename"
 
-#select sample based on the task ID
+#select sample file based on the task ID
 input_file=$(echo "$filename" | sed -n "${SGE_TASK_ID}p" )
 #echo "$input_file"
 
