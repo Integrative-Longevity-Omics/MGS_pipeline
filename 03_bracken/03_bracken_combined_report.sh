@@ -35,7 +35,7 @@ PHASE3=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/bracken_da
 #output directory
 OUTPUT=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/bracken_data/merged_output
 
-#list of Bracken output files for each experimental
+#list of sample Bracken output files for each experimental batch
 FILE1=$(ls ${PHASE1}/*.bracken.species.txt | cat)
 FILE2=$(ls ${PHASE2}/*.bracken.species.txt | cat)
 FILE3=$(ls ${PHASE3}/*.bracken.species.txt | cat)
