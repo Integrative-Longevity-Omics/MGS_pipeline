@@ -23,14 +23,14 @@ module load miniconda
 conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/conda_envs/mgx_classifiers
 
 #output directory
-FINAL_OUTPUT_DIR=/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kneaddata_fastq/kneaddata_out_june2024_07142025/
+FINAL_OUTPUT_DIR=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/kneaddata_fastq/kneaddata_out_june2024_07142025/
 mkdir $FINAL_OUTPUT_DIR
 
 #data directory for third experimental phase batch of samples
-DATA_DIR=/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_batches/Metagenomic_June_2024/Raw_Sequencing_Data_and_QC_Reports/250220
+DATA_DIR=/restricted/projectnb/ilometagenomics/data/ILO_batches/Metagenomic_June_2024/Raw_Sequencing_Data_and_QC_Reports/250220
 
 #database directory
-DB_DIR=/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kneaddata_fastq/chm13v2_reference_db
+DB_DIR=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/kneaddata_fastq/chm13v2_reference_db
 
 #enter data directory
 cd $DATA_DIR
