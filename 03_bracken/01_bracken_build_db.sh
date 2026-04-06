@@ -17,7 +17,7 @@ module load miniconda
 conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/conda_envs/mgx_classifiers
 
 #move into directory
-database_dir=/restricted/projectnb/uh2-sebas/data/metagenomics/Kraken2-DB/Kraken2-DB-06252025
+database_dir=/restricted/projectnb/ilometagenomics/data/Kraken2-DB/Kraken2-DB-06252025
 cd $database_dir
 
 #environment variable to set number of cores

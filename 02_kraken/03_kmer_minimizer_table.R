@@ -5,11 +5,11 @@ library(tidyverse)
 library(purrr)
 
 #data directory for each experimental phase batch
-phase1.dir <- "/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_nov2021/Reports/"
-phase2.dir <- "/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_feb2023/Reports/"
-phase3.dir <- "/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_june2024/Reports/"
+phase1.dir <- "/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_nov2021/Reports/"
+phase2.dir <- "/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_feb2023/Reports/"
+phase3.dir <- "/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_june2024/Reports/"
 #output directory
-out.dir <- "/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kraken2_data/merged_output/"
+out.dir <- "/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/kraken2_data/merged_output/"
 
 #list of kraken2 report files for each experimental phase
 phase1.kraken <- list.files(phase1.dir, pattern="aggregated.report.txt")

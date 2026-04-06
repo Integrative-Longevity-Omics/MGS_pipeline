@@ -19,7 +19,7 @@ conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analy
 OMP_NUM_THREADS=16
 
 #Kraken2 db path
-DBNAME="/restricted/projectnb/uh2-sebas/data/metagenomics/Kraken2-DB/Kraken2-DB-06252025/kraken2-06252025"
+DBNAME="/restricted/projectnb/ilometagenomics/data/Kraken2-DB/Kraken2-DB-06252025/kraken2-06252025"
 
 
 #download taxonomy

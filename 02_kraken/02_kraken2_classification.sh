@@ -8,7 +8,7 @@
 #$ -l h_rt=120:00:00
 #$ -N kraken2_batch
 #$ -j y
-#$ -o /restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_june2024/scripts/logs
+#$ -o /restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_june2024/scripts/logs
 #$ -t 1-218
 #total 218 samples
 
@@ -22,7 +22,7 @@ module load miniconda
 conda activate /restricted/projectnb/uh2-sebas/analysis/metagenomics/tanya_analyses/conda_envs/mgx_classifiers
 
 #kneaddata directory
-DATA_DIR=/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kneaddata_fastq/kneaddata_out_june2024_07142025
+DATA_DIR=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/kneaddata_fastq/kneaddata_out_june2024_07142025
 
 #enter kneaddata directory
 cd $DATA_DIR
@@ -41,11 +41,11 @@ SAMPLEARG=$(echo "$input_file" | cut -d'_' -f1)
 echo "$SAMPLEARG"
 
 #output directory
-OUTPUT=/restricted/projectnb/uh2-sebas/data/metagenomics/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_june2024/Reports
+OUTPUT=/restricted/projectnb/ilometagenomics/data/ILO_combined_cohort/kraken2_data/kraken2uniq_kneaddata_june2024/Reports
 mkdir $OUTPUT
 
 #Kraken2 database
-DBNAME=/restricted/projectnb/uh2-sebas/data/metagenomics/Kraken2-DB/Kraken2-DB-06252025/kraken2-06252025
+DBNAME=/restricted/projectnb/ilometagenomics/data/Kraken2-DB/Kraken2-DB-06252025/kraken2-06252025
 
 #Run Kraken2 of that sample
 kraken2 --threads 28 --db $DBNAME \
